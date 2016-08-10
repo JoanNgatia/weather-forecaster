@@ -13,7 +13,7 @@ def main():
 
 
 @app.route("/city", methods=['GET', 'POST'])
-def get_city():
+def get_city_current():
     city_name = request.args['city']
     payload = {'APPID': API_KEY, 'q': city_name, 'units': 'metric'}
     if city_name:
@@ -23,9 +23,10 @@ def get_city():
         wind = y['wind']['speed']
         weather = y['weather'][0]['main']
         average_temp = y['main']['temp']
-        return render_template("index.html", city=city_name,
+        country = y['sys']['country']
+        return render_template("index.html", city=city_name.title(),
                                weather=weather, windspeed=wind,
-                               temp=average_temp)
+                               temp=average_temp, country=country)
     else:
         return render_template("failed.html")
 
