@@ -1,5 +1,4 @@
 import requests
-# import json
 from flask import Flask, render_template, request
 
 app = Flask(__name__)
@@ -14,6 +13,7 @@ def main():
 
 @app.route("/city", methods=['GET', 'POST'])
 def get_city_current():
+    """Get current weather details."""
     city_name = request.args['city']
     payload = {'APPID': API_KEY, 'q': city_name, 'units': 'metric'}
     if city_name:
@@ -28,7 +28,7 @@ def get_city_current():
                                weather=weather, windspeed=wind,
                                temp=average_temp, country=country)
     else:
-        return render_template("failed.html")
+        return render_template("index.html")
 
 
 if __name__ == "__main__":
