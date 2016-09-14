@@ -2,11 +2,11 @@
   "name": "weathermap",
   "version": "1.0.0",
   "description": "Online weather forecaster by city",
-  "main": "main.js",
+  "main": "./static/js/main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "watch": "watchify -v -d -t [ reactify --es6 ] main.js -o compiled.js",
-    "build": "NODE_ENV=production browserify -t [ reactify --es6 ] main.js | uglifyjs > compiled.min.js"
+    "watch": "watchify -v -d -t [ babelify ] ./static/js/main.js -o compiled.js",
+    "build": "NODE_ENV=production browserify -t [ babelify ] ./static/js/main.js | uglifyjs > compiled.min.js"
   },
   "repository": {
     "type": "git",
@@ -20,13 +20,15 @@
   "homepage": "https://github.com/andela-jngatia/weather-forecaster#readme",
   "dependencies": {
     "moment": "^2.15.0",
-    "react": "^15.3.1"
+    "react": "^15.3.1",
+    "react-dom": "^15.3.1"
   },
   "devDependencies": {
     "babel-preset-es2015": "^6.14.0",
     "babel-preset-react": "^6.11.1",
+    "babelify": "^7.3.0",
     "browserify": "^13.1.0",
-    "reactify": "^1.1.1",
+    "superagent": "^2.2.0",
     "uglify": "^0.1.5",
     "watchify": "^3.7.0"
   }
