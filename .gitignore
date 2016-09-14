@@ -3,4 +3,5 @@ env
 *.pyc
 __pycache__
 weather/
+node_modules/
 post.md
