@@ -14,19 +14,10 @@ export default class App extends Component {
       newcity: null
     }
     this.searchForWeather = this.searchForWeather.bind(this);
+    this.toggleFavorite = this.toggleFavorite.bind(this);
+    this.addToFavorites = this.addToFavorites.bind(this);
+    this.removeFromFavourites = this.removeFromFavourites.bind(this);
   }
-
-  // getInitialState(){
-  //   let favorites = [];
-
-  //   if (localStorage.favorites){
-  //     favorites = JSON.parse(localStorage.favorites)
-  //   }
-
-  //   return {
-  //     favorites: favorites
-  //   };
-  // },
 
   toggleFavorite(city) {
     if(this.isCityInFavorites(city)){
