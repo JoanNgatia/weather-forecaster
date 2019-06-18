@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container" id="bodyapp">
+        <div class="row">
+            <h4>Know your weather!!</h4>
+            <div class="searchform col s12">
+                <form class="currentweatherform" action="/city">
+                    <input  name="city" type="text" class="validate" placeholder="City Name">
+                    <button type="submit" class="btn" value="Search">Search</button>
+                </form>
+            </div>
+            {% if city %}
+                <div class="currentweather col s12">
+                    <h3>{{city}}, {{ country }}</h3>
+                    <p>Today's weather: </p>
+                    <ul>
+                        <li>The weather is {{weather}}</li>
+                        <li>The wind speed is {{windspeed}}m/s</li>
+                        <li>The average temperature is {{temp}} &#8451;</li>
+                    </ul>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
